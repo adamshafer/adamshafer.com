@@ -91,6 +91,26 @@
         box-shadow: var(--shadow-lg);
       }
       
+      /* Subtle fade-in animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      body aside {
+        animation: fadeInUp 0.8s ease-out;
+      }
+      
+      body section {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+      }
+      
       body aside h1 {
         font-weight: 600;
         font-size: 2.5rem;
