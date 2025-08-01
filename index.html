@@ -2,94 +2,296 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Adam Shafer - Lead Front End Software Engineer with expertise in Vue.js, React, and modern web development. Based in Kansas City.">
+    <meta name="keywords" content="Adam Shafer, Frontend Developer, Software Engineer, Vue.js, React, JavaScript, Kansas City">
+    <meta name="author" content="Adam Shafer">
     <title>Adam Shafer | Lead Front End Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" type="text/css">
     <style>
+      :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --text-accent: #2563eb;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f9fafb;
+        --border-color: #e5e7eb;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
       body {
         max-width: 1200px;
         font-size: 1em;
-        margin: 30px auto;
-        font-family: 'Poppins', sans-serif;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 0.9em;
-        line-height: 1.7em;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+        padding: 2rem;
+        transition: all 0.3s ease;
       }
+      
       body a {
-        color: #077;    
+        color: var(--text-accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
       }
+      
+      body a:hover {
+        color: var(--primary-hover);
+        text-decoration: underline;
+      }
+      
+      body a:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+      
       body aside {
         float: left;
-        width: 235px;
-        padding: 0 30px;
+        width: 280px;
+        padding: 0 2rem 2rem 0;
         text-align: right;
+        position: relative;
       }
+      
+      body aside::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
+      }
+      
+      body aside img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      body aside img:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-lg);
+      }
+      
       body aside h1 {
-        text-transform: uppercase;
-        font-weight: normal;
-        font-size: 3.5em;
-        letter-spacing: -0.05em;
-        line-height: 1em;
-        margin: 0 0 15px 0;
-        text-shadow: rgba(0,0,0,0.2) 2px 2px 2px;
+        font-weight: 600;
+        font-size: 2.5rem;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin: 0 0 1rem 0;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
+      
       body aside h1 span {
         display: block;
         font-weight: 700;
+        color: var(--primary-color);
+        -webkit-text-fill-color: var(--primary-color);
       }
+      
+      body aside .contact-info {
+        font-size: 0.85rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+      
+      body aside .contact-info a {
+        display: inline-block;
+        padding: 0.25rem 0;
+      }
+      
       body section {
         overflow: auto;
-        padding: 30px;
-        border-left: 1px solid #eee;
+        padding: 2rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
       }
+      
+      body section article:first-child {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+        color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        margin: -2rem -2rem 2rem -2rem;
+        text-align: center;
+      }
+      
       body section article:first-child h1 {
-        margin-top: 0;
+        margin: 0 0 0.5rem 0;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 600;
       }
+      
+      body section article:first-child p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 1rem;
+      }
+      
       body section article h1 {
-        font-weight: 700;
-        text-shadow: rgba(0,0,0,0.2) 1px 1px 1px;
-        margin: 1.5em 0 0.75em 0;
-        font-size: 1.5em;
+        font-weight: 600;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        position: relative;
+        padding-bottom: 0.5rem;
       }
-      body section article ul {
+      
+      body section article h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 3rem;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 1px;
+      }
+      
+      body section article:not(:first-child) h1:first-child {
         margin-top: 0;
-        margin-left: 0;
+      }
+      
+      body section article ul {
+        margin: 1rem 0;
         padding-left: 0;
       }
+      
       body section article ul li {
-        margin-left: 1.2em;
+        margin: 0.75rem 0 0.75rem 1.5rem;
+        position: relative;
+        padding-left: 0.5rem;
       }
+      
+      body section article ul li::before {
+        content: '▸';
+        position: absolute;
+        left: -1rem;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+      
+      body section article p {
+        margin: 1rem 0;
+        line-height: 1.7;
+      }
+      
+      body section article strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+      
+      .job-title {
+        display: block;
+        margin: 0.5rem 0;
+        font-style: italic;
+        color: var(--text-secondary);
+      }
+      
+      .tech-category {
+        margin: 1rem 0 0.5rem 0;
+        display: block;
+      }
+      
+      .tech-list {
+        margin-left: 0.5rem;
+        color: var(--text-secondary);
+      }
+      
       @media(max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+        
         body aside {
           display: block;
           float: none;
           text-align: center;
-          padding: 0 15px 30px 15px;
+          padding: 0 0 2rem 0;
           width: auto;
         }
+        
+        body aside::after {
+          display: none;
+        }
+        
+        body aside img {
+          width: 100px;
+          height: 100px;
+        }
+        
+        body aside h1 {
+          font-size: 2rem;
+        }
+        
         body section {
-          overflow: auto;
-          padding: 30px 0;
-          margin: 0 15px;
-          border-left: none;
-          border-top: 1px solid #eee;
+          padding: 1.5rem;
+          margin: 0;
+          border-radius: 8px;
+        }
+        
+        body section article:first-child {
+          margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+          padding: 1.5rem;
+        }
+        
+        body section article:first-child h1 {
+          font-size: 1.5rem;
+        }
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
   <body>
-    <aside>
-      <img src="a.png" alt="" />
+    <aside role="complementary" aria-label="Contact Information">
+      <img src="a.png" alt="Adam Shafer profile photo" />
       <h1>Adam<span>Shafer</span></h1>
-      11200 Delaware Pkwy. #1430<br />
-      Kansas City, KS 66109<br />
-      <a href="mailto:adam@adamshafer.com">adam@adamshafer.com</a><br />
-      <a href="tel:772-240-5718">772-240-5718</a>
+      <div class="contact-info">
+        <address>
+          11200 Delaware Pkwy. #1430<br />
+          Kansas City, KS 66109
+        </address>
+        <a href="mailto:adam@adamshafer.com" aria-label="Email Adam Shafer">adam@adamshafer.com</a><br />
+        <a href="tel:772-240-5718" aria-label="Call Adam Shafer">772-240-5718</a>
+      </div>
     </aside>
-    <section>
+    <main role="main">
+      <section>
       <article>
         <h1>Lead Front End Software Engineer</h1>
-        Creative • Motivated • Skilled
+        <p>Creative • Motivated • Skilled</p>
       </article>
       <article>
         <h1>Education</h1>
@@ -98,43 +300,43 @@
         <p><strong>08/2000-05/2004 • Purdue University • West Lafayette, IN</strong><br />
         Bachelor of Science in Computer Graphics Technology (Interactive Multimedia Design)</p>
         <h1>Work Experience</h1>
-        <strong>06/2021-present • WarehouseQuote • Kansas City, MO</strong><br />
-        Lead Front End Software Engineer
+        <strong>06/2021-present • WarehouseQuote • Kansas City, MO</strong>
+        <span class="job-title">Lead Front End Software Engineer</span>
         <ul>
           <li>Built our internal and customer-facing portal from scratch using Vue 3, Vite, Composition API and the &lt;script setup&gt; syntax</li>
           <li>Created highly-customizable dashboards to visualize data using chart.js, leaflet, and DataTables.js</li>
           <li>Assisted in the design of REST APIs to efficiently and securely access client information and automate business processes to save countless hours of manual data manipulation</li>
         </ul>
-        <strong>01/2018-05/2021 • Pro Athlete • Kansas City, MO</strong><br />
-        Senior Front End Developer
+        <strong>01/2018-05/2021 • Pro Athlete • Kansas City, MO</strong>
+        <span class="job-title">Senior Front End Developer</span>
         <ul>
           <li>Rewrote the company's flagship sites <a href="https://justbats.com">JustBats</a>, <a href="https://justgloves.com">JustGloves</a>, <a href="https://justpaddles.com">JustPaddles</a>, and <a href="https://routine.com">Routine</a> from the ground up</li>
           <li>Subsequently, JustBats was featured in <a href="https://www.newsweek.com/best-online-shops-2020/sport-outdoor-motor">Newsweek's "Best Online Shops 2020"</a>, scoring better than sites like Nike.com, REI.com, and all of our competitors</li>
           <li>Work with a tight-knit team of developers to add features to our eCommerce sites and assist in marketing efforts</li>
         </ul>
-        <strong>07/2015-01/2018 • Intouch Solutions • Overland Park, KS</strong><br />
-        Senior Front End Developer
+        <strong>07/2015-01/2018 • Intouch Solutions • Overland Park, KS</strong>
+        <span class="job-title">Senior Front End Developer</span>
         <ul>
           <li>Developed large-scale pharma websites for companies like AbbVie and Otsuka, for drugs such as Humira, AndroGel, Abilify, and many more</li>
           <li>Coded responsive emails that render consistently across all devices, operating systems, and email clients</li>
           <li>Worked with a diverse team of creatives, business system analysts, project managers, and others</li>
         </ul>
-        <strong>05/2013-06/2015 • Combined Arms Center Headquarters (G-6) • Fort Leavenworth, KS</strong><br />
-        Software Architect
+        <strong>05/2013-06/2015 • Combined Arms Center Headquarters (G-6) • Fort Leavenworth, KS</strong>
+        <span class="job-title">Software Architect</span>
         <ul>
           <li>Developed custom web applications that are utilized by all organizations on post, many involving SharePoint and leveraging native and third-party tools such as SPServices to manipulate data</li>
           <li>Completely revamped CAC's public website using Drupal as a CMS, allowing custom workflows, user management, content revisions, etc.</li>
           <li>Acted as the CAC-HQ's graphics specialist for all web-related UX needs</li>
         </ul>
-        <strong>07/2012-05/2013 • Army Management Staff College • Fort Leavenworth, KS</strong><br />
-        Lead Web Developer
+        <strong>07/2012-05/2013 • Army Management Staff College • Fort Leavenworth, KS</strong>
+        <span class="job-title">Lead Web Developer</span>
         <ul>
           <li>Maintained existing systems related to the college’s many web applications, including the intranet, SharePoint, Blackboard, public, and other web presences</li>
           <li>Determined user requirements and hardware/software requirements before developing new web applications for the college</li>
           <li>Administered internal web and database servers, including virtualization of many environments</li>
         </ul>
-        <strong>03/2007-07/2012 • Weiss Research, Inc. • Jupiter, FL</strong><br />
-        Director of Web & E-mail Production
+        <strong>03/2007-07/2012 • Weiss Research, Inc. • Jupiter, FL</strong>
+        <span class="job-title">Director of Web & E-mail Production</span>
         <ul>
           <li>Led a team of seven skilled web developers, graphic artists, and marketing professionals, focused on day-to-day operations and application development of existing and new web-based systems</li>
           <li>Worked along side the marketing team to create and send optimized multipart e-mail promotions</li>
@@ -143,11 +345,16 @@
       </article>
       <article>
         <h1>Technical Proficiency</h1>
-        <strong>Applications:</strong> VSCode, Visual Studio, Sourcetree, Postman, Sketch, Photoshop, Illustrator<br />
-        <strong>Platforms/Tools:</strong> Git, Node.js, MongoDB, AWS, Docker, OAuth, MySQL, SQL Server, Redis, Jira, Bitbucket, Confluence, Swagger<br />
-        <strong>Languages:</strong> HTML5, CSS3, LESS, SCSS, JavaScript (ES6), .Net MVC, PHP, SQL<br />
-        <strong>Libraries:</strong> Vue.js, ReactJS, jQuery, Bootstrap, PrimeVue, Vite, Vitest, Leaflet, chart.js, axios, DataTables.js
+        <strong class="tech-category">Applications:</strong>
+        <span class="tech-list">VSCode, Visual Studio, Sourcetree, Postman, Sketch, Photoshop, Illustrator</span><br />
+        <strong class="tech-category">Platforms/Tools:</strong>
+        <span class="tech-list">Git, Node.js, MongoDB, AWS, Docker, OAuth, MySQL, SQL Server, Redis, Jira, Bitbucket, Confluence, Swagger</span><br />
+        <strong class="tech-category">Languages:</strong>
+        <span class="tech-list">HTML5, CSS3, LESS, SCSS, JavaScript (ES6), .Net MVC, PHP, SQL</span><br />
+        <strong class="tech-category">Libraries:</strong>
+        <span class="tech-list">Vue.js, ReactJS, jQuery, Bootstrap, PrimeVue, Vite, Vitest, Leaflet, chart.js, axios, DataTables.js</span>
       </article>
-    </section>
+      </section>
+    </main>
   </body>
 </html>
